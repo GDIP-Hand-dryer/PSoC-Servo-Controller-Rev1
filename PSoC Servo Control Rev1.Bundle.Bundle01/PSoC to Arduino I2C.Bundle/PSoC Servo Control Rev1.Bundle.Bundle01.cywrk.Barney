@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Source Files\PCA9685_Custom.c">
+<ExpandedNodeIds>
+<v>PSoC Servo Control Rev1.Bundle</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\TopDesign</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Pins</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Analog</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Clocks</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Interrupts</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\DMA</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\System</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Directives</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Flash Security</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\EEPROM</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Header Files</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Header Files\cyapicallbacks.h</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Header Files\PCA9685_Custom.h</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Source Files</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Source Files\main.c</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Source Files\PCA9685_Custom.c</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\TopDesign</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Pins</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Analog</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Clocks</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Interrupts</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\DMA</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\System</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Directives</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\Flash Security</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.cydwr\EEPROM</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Header Files</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Header Files\cyapicallbacks.h</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Header Files\PCA9685_Custom.h</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Source Files</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Source Files\main.c</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Source Files\PCA9685_Custom.c</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\Generated_Source</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>PSoC Servo Control Rev1.Bundle</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\TopDesign</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSoC Servo Control Rev1.Bundle</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\TopDesign</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>PSoC Servo Control Rev1.Bundle</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_BOOT.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_INT.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_MASTER.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_PM.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_SLAVE.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\PCA9685_Custom.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL_1.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA_1.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\PSoC Servo Control Rev1.elf</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\PSoC Servo Control Rev1.hex</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\PSoC Servo Control Rev1.map</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.gpdsc</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1.rpt</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC Servo Control Rev1_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSoC Servo Control Rev1.Bundle</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1.lst</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_BOOT.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>PSoC Servo Control Rev1.Bundle</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC 5LP Architecture TRM</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CY8C58LP Family Datasheet</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\System Reference Guides</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\System Reference Guides\cy_boot_v5_70</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\cy_pins_v2_20</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\I2C_v3_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>PSoC Servo Control Rev1.Bundle</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\PSoC 5LP Architecture TRM</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\CY8C58LP Family Datasheet</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\System Reference Guides</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\System Reference Guides\cy_boot_v5_70</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\cy_pins_v2_20</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>PSoC Servo Control Rev1.Bundle\PSoC Servo Control Rev1\I2C_v3_50.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\PSoC Servo Control Rev1.cydsn\main.c" />
+<name v=".\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.c" />
+<name v=".\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.h" />
+<name v=".\PSoC Servo Control Rev1.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\PSoC Servo Control Rev1.cydsn\PSoC Servo Control Rev1.cydwr" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1441, 643" SelectedTabbedMdiWindow="805930dc-8035-447c-87db-e3541119a396"><DocumentWindow Key="C:\Users\Barney\Desktop\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\main.c" Guid="805930dc-8035-447c-87db-e3541119a396" /><DocumentWindow Key="C:\Users\Barney\Desktop\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.c" Guid="1d3ac5ac-6223-49cf-bd7b-c858d5b7972d" /><DocumentWindow Key="C:\Users\Barney\Desktop\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.h" Guid="c1476d29-ed06-460a-b5bc-a732000e11ff" /><DocumentWindow Key="C:\Users\Barney\Desktop\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\TopDesign\TopDesign.cysch" Guid="c7337163-08cf-4a9c-bfaa-7068a861c7f5" /><DocumentWindow Key="C:\Users\Barney\Desktop\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PSoC Servo Control Rev1.cydwr" Guid="09f98cb0-9dc1-4366-8d88-ccee2f05ccba" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="dca795b5-6462-4a4e-ac4b-7defd8736cbf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
