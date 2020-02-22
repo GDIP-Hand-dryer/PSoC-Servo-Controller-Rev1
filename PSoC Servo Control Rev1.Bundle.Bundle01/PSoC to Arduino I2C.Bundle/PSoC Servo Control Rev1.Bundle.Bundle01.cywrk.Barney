@@ -81,6 +81,35 @@
 <VisibleNodeIds>
 <v>PSoC Servo Control Rev1.Bundle.Bundle01</v>
 <v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_BOOT.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_INT.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_MASTER.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_PM.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_SLAVE.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\PCA9685_Custom.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL_1.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA_1.lst</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\PSoC Servo Control Rev1.elf</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\PSoC Servo Control Rev1.hex</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\CortexM3\ARM_GCC_541\Debug\PSoC Servo Control Rev1.map</v>
+<v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\PSoC Servo Control Rev1.gpdsc</v>
 <v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\PSoC Servo Control Rev1.rpt</v>
 <v>PSoC Servo Control Rev1.Bundle.Bundle01\PSoC Servo Control Rev1\PSoC Servo Control Rev1_timing.html</v>
 </VisibleNodeIds>
@@ -127,7 +156,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1255, 793" SelectedTabbedMdiWindow="2b591599-b2cf-4cf7-9ef1-9cf235fa6406"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="dca795b5-6462-4a4e-ac4b-7defd8736cbf" /><DocumentWindow Key="C:\Users\Barney\Documents\GitHub\PSoC-Servo-Controller-Rev1\PSoC Servo Control Rev1.Bundle.Bundle01\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.c" Guid="56857644-4b0b-4605-90d2-acb3174aeeb4" /><DocumentWindow Key="C:\Users\Barney\Documents\GitHub\PSoC-Servo-Controller-Rev1\PSoC Servo Control Rev1.Bundle.Bundle01\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.h" Guid="2b591599-b2cf-4cf7-9ef1-9cf235fa6406" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1255, 642" SelectedTabbedMdiWindow="2b591599-b2cf-4cf7-9ef1-9cf235fa6406"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="dca795b5-6462-4a4e-ac4b-7defd8736cbf" /><DocumentWindow Key="C:\Users\Barney\Documents\GitHub\PSoC-Servo-Controller-Rev1\PSoC Servo Control Rev1.Bundle.Bundle01\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.c" Guid="56857644-4b0b-4605-90d2-acb3174aeeb4" /><DocumentWindow Key="C:\Users\Barney\Documents\GitHub\PSoC-Servo-Controller-Rev1\PSoC Servo Control Rev1.Bundle.Bundle01\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PCA9685_Custom.h" Guid="2b591599-b2cf-4cf7-9ef1-9cf235fa6406" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
