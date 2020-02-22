@@ -1,14 +1,31 @@
-/* ========================================
+/*!
+ *  @file Adafruit_PWMServoDriver.cpp
  *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
+ *  @mainpage Adafruit 16-channel PWM & Servo driver
  *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ *  @section intro_sec Introduction
  *
- * ========================================
-*/
+ *  This is a library for the 16-channel PWM & Servo driver.
+ *
+ *  Designed specifically to work with the Adafruit PWM & Servo driver.
+ *
+ *  Pick one up today in the adafruit shop!
+ *  ------> https://www.adafruit.com/product/815
+ *
+ *  These displays use I2C to communicate, 2 pins are required to interface.
+ *
+ *  Adafruit invests time and resources providing this open source code,
+ *  please support Adafruit andopen-source hardware by purchasing products
+ *  from Adafruit!
+ *
+ *  @section author Author
+ *
+ *  Limor Fried/Ladyada (Adafruit Industries).
+ *
+ *  @section license License
+ *
+ *  BSD license, all text above must be included in any redistribution
+ */
 #include <PCA9685_Custom.h>
 #include <math.h>
 #define I2C_SLAVE_ADDR      (0x40u)
