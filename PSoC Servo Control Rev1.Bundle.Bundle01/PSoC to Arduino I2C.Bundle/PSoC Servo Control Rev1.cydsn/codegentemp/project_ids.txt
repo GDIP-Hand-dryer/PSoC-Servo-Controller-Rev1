@@ -1,0 +1,6 @@
+C:\Users\Barney\Documents\GitHub\PSoC-Servo-Controller-Rev1\PSoC Servo Control Rev1.Bundle.Bundle01\PSoC to Arduino I2C.Bundle\PSoC Servo Control Rev1.cydsn\PSoC Servo Control Rev1.cyprj|6abf48be-5e28-4663-bcdc-18c9cf62aadd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|1cffb3c3-3b20-4270-b82a-eba842537a42
+C:\Users\Barney\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|00a9a7f6-ef27-42c9-bbb2-21f532a91c1a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|c0d72307-b823-4831-8396-d3bca59026a7
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|580881c8-d22b-451a-9e7c-ac91a387c322
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|2508e9a4-88b2-4d41-8313-8e665cbf0fc0

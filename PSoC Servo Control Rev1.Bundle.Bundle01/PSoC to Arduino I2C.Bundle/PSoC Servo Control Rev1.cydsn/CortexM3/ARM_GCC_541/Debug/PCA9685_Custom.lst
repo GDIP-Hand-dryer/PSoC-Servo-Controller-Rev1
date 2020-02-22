@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 1
 
 
    1              		.syntax unified
@@ -28,43 +28,60 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
   25              	PCA9685_Custom_setPWM:
   26              	.LFB66:
   27              		.file 1 "PCA9685_Custom.c"
-   1:PCA9685_Custom.c **** /* ========================================
-   2:PCA9685_Custom.c ****  *
-   3:PCA9685_Custom.c ****  * Copyright YOUR COMPANY, THE YEAR
-   4:PCA9685_Custom.c ****  * All Rights Reserved
-   5:PCA9685_Custom.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
-   6:PCA9685_Custom.c ****  *
-   7:PCA9685_Custom.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
-   8:PCA9685_Custom.c ****  * WHICH IS THE PROPERTY OF your company.
+   1:PCA9685_Custom.c **** /*!
+   2:PCA9685_Custom.c ****  *  @file Adafruit_PWMServoDriver.cpp
+   3:PCA9685_Custom.c ****  *
+   4:PCA9685_Custom.c ****  *  @mainpage Adafruit 16-channel PWM & Servo driver
+   5:PCA9685_Custom.c ****  *
+   6:PCA9685_Custom.c ****  *  @section intro_sec Introduction
+   7:PCA9685_Custom.c ****  *
+   8:PCA9685_Custom.c ****  *  This is a library for the 16-channel PWM & Servo driver.
    9:PCA9685_Custom.c ****  *
-  10:PCA9685_Custom.c ****  * ========================================
-  11:PCA9685_Custom.c **** */
-  12:PCA9685_Custom.c **** #include <PCA9685_Custom.h>
-  13:PCA9685_Custom.c **** #include <math.h>
-  14:PCA9685_Custom.c **** #define I2C_SLAVE_ADDR      (0x40u)
-  15:PCA9685_Custom.c **** 
-  16:PCA9685_Custom.c **** //float freq = 1600.0;
-  17:PCA9685_Custom.c **** float oscillator_frequency = 27000000;
-  18:PCA9685_Custom.c **** 
-  19:PCA9685_Custom.c **** //Set servo maximum limits here
-  20:PCA9685_Custom.c **** uint16_t Servo_Limit_Low[6]={90,90,90,90,90,90};
-  21:PCA9685_Custom.c **** uint16_t Servo_Limit_High[6]={560,560,560,560,560,560};
-  22:PCA9685_Custom.c **** 
-  23:PCA9685_Custom.c **** void PCA9685_Custom_Begin(){
-  24:PCA9685_Custom.c ****     I2C_1_Start();
-  25:PCA9685_Custom.c ****     PCA9685_Custom_Reset();
-  26:PCA9685_Custom.c ****     PCA9685_Custom_setPWMFreq(60);
-  27:PCA9685_Custom.c **** }
-  28:PCA9685_Custom.c **** 
-  29:PCA9685_Custom.c **** void PCA9685_Custom_Reset(void) {
-  30:PCA9685_Custom.c ****  PCA9685_Custom_Write8(PCA9685_MODE1, 0x80);
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 2
+  10:PCA9685_Custom.c ****  *  Designed specifically to work with the Adafruit PWM & Servo driver.
+  11:PCA9685_Custom.c ****  *
+  12:PCA9685_Custom.c ****  *  Pick one up today in the adafruit shop!
+  13:PCA9685_Custom.c ****  *  ------> https://www.adafruit.com/product/815
+  14:PCA9685_Custom.c ****  *
+  15:PCA9685_Custom.c ****  *  These displays use I2C to communicate, 2 pins are required to interface.
+  16:PCA9685_Custom.c ****  *
+  17:PCA9685_Custom.c ****  *  Adafruit invests time and resources providing this open source code,
+  18:PCA9685_Custom.c ****  *  please support Adafruit andopen-source hardware by purchasing products
+  19:PCA9685_Custom.c ****  *  from Adafruit!
+  20:PCA9685_Custom.c ****  *
+  21:PCA9685_Custom.c ****  *  @section author Author
+  22:PCA9685_Custom.c ****  *
+  23:PCA9685_Custom.c ****  *  Limor Fried/Ladyada (Adafruit Industries).
+  24:PCA9685_Custom.c ****  *
+  25:PCA9685_Custom.c ****  *  @section license License
+  26:PCA9685_Custom.c ****  *
+  27:PCA9685_Custom.c ****  *  BSD license, all text above must be included in any redistribution
+  28:PCA9685_Custom.c ****  */
+  29:PCA9685_Custom.c **** #include <PCA9685_Custom.h>
+  30:PCA9685_Custom.c **** #include <math.h>
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 2
 
 
-  31:PCA9685_Custom.c **** }
+  31:PCA9685_Custom.c **** #define I2C_SLAVE_ADDR      (0x40u)
   32:PCA9685_Custom.c **** 
-  33:PCA9685_Custom.c **** void PCA9685_Custom_setPWM(uint8 num, uint16 on, uint16 off){
-  28              		.loc 1 33 0
+  33:PCA9685_Custom.c **** //float freq = 1600.0;
+  34:PCA9685_Custom.c **** float oscillator_frequency = 27000000;
+  35:PCA9685_Custom.c **** 
+  36:PCA9685_Custom.c **** //Set servo maximum limits here
+  37:PCA9685_Custom.c **** uint16_t Servo_Limit_Low[6]={90,90,90,90,90,90};
+  38:PCA9685_Custom.c **** uint16_t Servo_Limit_High[6]={560,560,560,560,560,560};
+  39:PCA9685_Custom.c **** 
+  40:PCA9685_Custom.c **** void PCA9685_Custom_Begin(){
+  41:PCA9685_Custom.c ****     I2C_1_Start();
+  42:PCA9685_Custom.c ****     PCA9685_Custom_Reset();
+  43:PCA9685_Custom.c ****     PCA9685_Custom_setPWMFreq(60);
+  44:PCA9685_Custom.c **** }
+  45:PCA9685_Custom.c **** 
+  46:PCA9685_Custom.c **** void PCA9685_Custom_Reset(void) {
+  47:PCA9685_Custom.c ****  PCA9685_Custom_Write8(PCA9685_MODE1, 0x80);
+  48:PCA9685_Custom.c **** }
+  49:PCA9685_Custom.c **** 
+  50:PCA9685_Custom.c **** void PCA9685_Custom_setPWM(uint8 num, uint16 on, uint16 off){
+  28              		.loc 1 50 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -77,18 +94,18 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
   38              		.cfi_offset 14, -4
   39 0002 0446     		mov	r4, r0
   40 0004 0E46     		mov	r6, r1
-  34:PCA9685_Custom.c ****     
-  35:PCA9685_Custom.c ****     //limit servo movement to between low and high limits
-  36:PCA9685_Custom.c ****     if(off<Servo_Limit_Low[num]){
-  41              		.loc 1 36 0
+  51:PCA9685_Custom.c ****     
+  52:PCA9685_Custom.c ****     //limit servo movement to between low and high limits
+  53:PCA9685_Custom.c ****     if(off<Servo_Limit_Low[num]){
+  41              		.loc 1 53 0
   42 0006 124B     		ldr	r3, .L4
   43 0008 33F81050 		ldrh	r5, [r3, r0, lsl #1]
   44 000c 9542     		cmp	r5, r2
   45 000e 05D8     		bhi	.L2
-  37:PCA9685_Custom.c ****         off=Servo_Limit_Low[num];
-  38:PCA9685_Custom.c ****     }
-  39:PCA9685_Custom.c ****     else if(off>Servo_Limit_High[num]){
-  46              		.loc 1 39 0
+  54:PCA9685_Custom.c ****         off=Servo_Limit_Low[num];
+  55:PCA9685_Custom.c ****     }
+  56:PCA9685_Custom.c ****     else if(off>Servo_Limit_High[num]){
+  46              		.loc 1 56 0
   47 0010 03EB4003 		add	r3, r3, r0, lsl #1
   48 0014 9D89     		ldrh	r5, [r3, #12]
   49 0016 AA42     		cmp	r2, r5
@@ -96,51 +113,51 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
   51 001a 1546     		mov	r5, r2
   52              	.L2:
   53              	.LVL1:
-  40:PCA9685_Custom.c ****         off=Servo_Limit_High[num];
-  41:PCA9685_Custom.c ****     }
-  42:PCA9685_Custom.c ****     else{
-  43:PCA9685_Custom.c ****     }
-  44:PCA9685_Custom.c ****        
-  45:PCA9685_Custom.c ****     I2C_1_MasterSendStart(I2C_SLAVE_ADDR, I2C_WRITE_XFER_MODE);
-  54              		.loc 1 45 0
+  57:PCA9685_Custom.c ****         off=Servo_Limit_High[num];
+  58:PCA9685_Custom.c ****     }
+  59:PCA9685_Custom.c ****     else{
+  60:PCA9685_Custom.c ****     }
+  61:PCA9685_Custom.c ****        
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 3
+
+
+  62:PCA9685_Custom.c ****     I2C_1_MasterSendStart(I2C_SLAVE_ADDR, I2C_WRITE_XFER_MODE);
+  54              		.loc 1 62 0
   55 001c 0021     		movs	r1, #0
   56              	.LVL2:
   57 001e 4020     		movs	r0, #64
   58              	.LVL3:
   59 0020 FFF7FEFF 		bl	I2C_1_MasterSendStart
   60              	.LVL4:
-  46:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(CH0_ON_L+(0x04*num));
-  61              		.loc 1 46 0
+  63:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(CH0_ON_L+(0x04*num));
+  61              		.loc 1 63 0
   62 0024 A000     		lsls	r0, r4, #2
   63 0026 0630     		adds	r0, r0, #6
   64 0028 00F0FE00 		and	r0, r0, #254
   65 002c FFF7FEFF 		bl	I2C_1_MasterWriteByte
   66              	.LVL5:
-  47:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(on);
-  67              		.loc 1 47 0
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 3
-
-
+  64:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(on);
+  67              		.loc 1 64 0
   68 0030 F0B2     		uxtb	r0, r6
   69 0032 FFF7FEFF 		bl	I2C_1_MasterWriteByte
   70              	.LVL6:
-  48:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(on>>8);
-  71              		.loc 1 48 0
+  65:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(on>>8);
+  71              		.loc 1 65 0
   72 0036 300A     		lsrs	r0, r6, #8
   73 0038 FFF7FEFF 		bl	I2C_1_MasterWriteByte
   74              	.LVL7:
-  49:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(off);
-  75              		.loc 1 49 0
+  66:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(off);
+  75              		.loc 1 66 0
   76 003c E8B2     		uxtb	r0, r5
   77 003e FFF7FEFF 		bl	I2C_1_MasterWriteByte
   78              	.LVL8:
-  50:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(off>>8);
-  79              		.loc 1 50 0
+  67:PCA9685_Custom.c ****     I2C_1_MasterWriteByte(off>>8);
+  79              		.loc 1 67 0
   80 0042 280A     		lsrs	r0, r5, #8
   81 0044 FFF7FEFF 		bl	I2C_1_MasterWriteByte
   82              	.LVL9:
-  51:PCA9685_Custom.c ****     I2C_1_MasterSendStop();
-  83              		.loc 1 51 0
+  68:PCA9685_Custom.c ****     I2C_1_MasterSendStop();
+  83              		.loc 1 68 0
   84 0048 FFF7FEFF 		bl	I2C_1_MasterSendStop
   85              	.LVL10:
   86 004c 70BD     		pop	{r4, r5, r6, pc}
@@ -160,33 +177,33 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  100              		.type	PCA9685_Custom_Write8, %function
  101              	PCA9685_Custom_Write8:
  102              	.LFB68:
-  52:PCA9685_Custom.c **** }
-  53:PCA9685_Custom.c **** 
-  54:PCA9685_Custom.c **** void PCA9685_Custom_setPWMFreq(float freq) {
-  55:PCA9685_Custom.c ****   //Serial.print("Attempting to set freq ");
-  56:PCA9685_Custom.c ****   //Serial.println(freq);
-  57:PCA9685_Custom.c ****   freq *= 0.9;  // Correct for overshoot in the frequency setting (see issue #11).
-  58:PCA9685_Custom.c ****   float prescaleval = 25000000;
-  59:PCA9685_Custom.c ****   prescaleval /= 4096;
-  60:PCA9685_Custom.c ****   prescaleval /= freq;
-  61:PCA9685_Custom.c ****   prescaleval -= 1;
-  62:PCA9685_Custom.c ****  
-  63:PCA9685_Custom.c ****   uint8_t prescale = floor(prescaleval + 0.5);
-  64:PCA9685_Custom.c ****    
-  65:PCA9685_Custom.c ****   uint8_t oldmode = PCA9685_Custom_Read8(PCA9685_MODE1);
-  66:PCA9685_Custom.c ****   uint8_t newmode = (oldmode&0x7F) | 0x10; // sleep
-  67:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, newmode); // go to sleep
-  68:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_PRESCALE, prescale); // set the prescaler
-  69:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode);
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 4
+  69:PCA9685_Custom.c **** }
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 4
 
 
-  70:PCA9685_Custom.c ****   CyDelayUs(5);  
-  71:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode | 0xa1);  //  This sets the MODE1 register to turn o
-  72:PCA9685_Custom.c **** }
-  73:PCA9685_Custom.c **** 
-  74:PCA9685_Custom.c **** uint8_t PCA9685_Custom_Write8(uint8_t reg, uint8_t data){
- 103              		.loc 1 74 0
+  70:PCA9685_Custom.c **** 
+  71:PCA9685_Custom.c **** void PCA9685_Custom_setPWMFreq(float freq) {
+  72:PCA9685_Custom.c ****   //Serial.print("Attempting to set freq ");
+  73:PCA9685_Custom.c ****   //Serial.println(freq);
+  74:PCA9685_Custom.c ****   freq *= 0.9;  // Correct for overshoot in the frequency setting (see issue #11).
+  75:PCA9685_Custom.c ****   float prescaleval = 25000000;
+  76:PCA9685_Custom.c ****   prescaleval /= 4096;
+  77:PCA9685_Custom.c ****   prescaleval /= freq;
+  78:PCA9685_Custom.c ****   prescaleval -= 1;
+  79:PCA9685_Custom.c ****  
+  80:PCA9685_Custom.c ****   uint8_t prescale = floor(prescaleval + 0.5);
+  81:PCA9685_Custom.c ****    
+  82:PCA9685_Custom.c ****   uint8_t oldmode = PCA9685_Custom_Read8(PCA9685_MODE1);
+  83:PCA9685_Custom.c ****   uint8_t newmode = (oldmode&0x7F) | 0x10; // sleep
+  84:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, newmode); // go to sleep
+  85:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_PRESCALE, prescale); // set the prescaler
+  86:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode);
+  87:PCA9685_Custom.c ****   CyDelayUs(5);  
+  88:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode | 0xa1);  //  This sets the MODE1 register to turn o
+  89:PCA9685_Custom.c **** }
+  90:PCA9685_Custom.c **** 
+  91:PCA9685_Custom.c **** uint8_t PCA9685_Custom_Write8(uint8_t reg, uint8_t data){
+ 103              		.loc 1 91 0
  104              		.cfi_startproc
  105              		@ args = 0, pretend = 0, frame = 0
  106              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -199,9 +216,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  113              		.cfi_offset 14, -4
  114 0002 0446     		mov	r4, r0
  115 0004 0D46     		mov	r5, r1
-  75:PCA9685_Custom.c ****     uint8_t Result;
-  76:PCA9685_Custom.c ****     if((Result = I2C_1_MasterSendStart(I2C_SLAVE_ADDR, I2C_WRITE_XFER_MODE))) return Result;
- 116              		.loc 1 76 0
+  92:PCA9685_Custom.c ****     uint8_t Result;
+  93:PCA9685_Custom.c ****     if((Result = I2C_1_MasterSendStart(I2C_SLAVE_ADDR, I2C_WRITE_XFER_MODE))) return Result;
+ 116              		.loc 1 93 0
  117 0006 0021     		movs	r1, #0
  118              	.LVL13:
  119 0008 4020     		movs	r0, #64
@@ -209,22 +226,25 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  121 000a FFF7FEFF 		bl	I2C_1_MasterSendStart
  122              	.LVL15:
  123 000e 50B9     		cbnz	r0, .L8
-  77:PCA9685_Custom.c ****     if((Result = I2C_1_MasterWriteByte(reg))) return Result;
- 124              		.loc 1 77 0
+  94:PCA9685_Custom.c ****     if((Result = I2C_1_MasterWriteByte(reg))) return Result;
+ 124              		.loc 1 94 0
  125 0010 2046     		mov	r0, r4
  126              	.LVL16:
  127 0012 FFF7FEFF 		bl	I2C_1_MasterWriteByte
  128              	.LVL17:
  129 0016 38B9     		cbnz	r0, .L9
-  78:PCA9685_Custom.c ****     if((Result = I2C_1_MasterWriteByte(data))) return Result;
- 130              		.loc 1 78 0
+  95:PCA9685_Custom.c ****     if((Result = I2C_1_MasterWriteByte(data))) return Result;
+ 130              		.loc 1 95 0
  131 0018 2846     		mov	r0, r5
  132              	.LVL18:
  133 001a FFF7FEFF 		bl	I2C_1_MasterWriteByte
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 5
+
+
  134              	.LVL19:
  135 001e 20B9     		cbnz	r0, .L10
-  79:PCA9685_Custom.c ****     if((Result = I2C_1_MasterSendStop())) return Result;
- 136              		.loc 1 79 0
+  96:PCA9685_Custom.c ****     if((Result = I2C_1_MasterSendStop())) return Result;
+ 136              		.loc 1 96 0
  137 0020 FFF7FEFF 		bl	I2C_1_MasterSendStop
  138              	.LVL20:
  139 0024 38BD     		pop	{r3, r4, r5, pc}
@@ -233,14 +253,11 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  142              	.L9:
  143 0028 38BD     		pop	{r3, r4, r5, pc}
  144              	.L10:
-  80:PCA9685_Custom.c ****     return Result;
-  81:PCA9685_Custom.c **** }
- 145              		.loc 1 81 0
+  97:PCA9685_Custom.c ****     return Result;
+  98:PCA9685_Custom.c **** }
+ 145              		.loc 1 98 0
  146 002a 38BD     		pop	{r3, r4, r5, pc}
  147              		.cfi_endproc
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 5
-
-
  148              	.LFE68:
  149              		.size	PCA9685_Custom_Write8, .-PCA9685_Custom_Write8
  150              		.section	.text.PCA9685_Custom_Reset,"ax",%progbits
@@ -251,8 +268,8 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  155              		.type	PCA9685_Custom_Reset, %function
  156              	PCA9685_Custom_Reset:
  157              	.LFB65:
-  29:PCA9685_Custom.c ****  PCA9685_Custom_Write8(PCA9685_MODE1, 0x80);
- 158              		.loc 1 29 0
+  46:PCA9685_Custom.c ****  PCA9685_Custom_Write8(PCA9685_MODE1, 0x80);
+ 158              		.loc 1 46 0
  159              		.cfi_startproc
  160              		@ args = 0, pretend = 0, frame = 0
  161              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -260,8 +277,8 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  163              		.cfi_def_cfa_offset 8
  164              		.cfi_offset 3, -8
  165              		.cfi_offset 14, -4
-  30:PCA9685_Custom.c **** }
- 166              		.loc 1 30 0
+  47:PCA9685_Custom.c **** }
+ 166              		.loc 1 47 0
  167 0002 8021     		movs	r1, #128
  168 0004 0020     		movs	r0, #0
  169 0006 FFF7FEFF 		bl	PCA9685_Custom_Write8
@@ -278,9 +295,12 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  180              		.type	PCA9685_Custom_Read8, %function
  181              	PCA9685_Custom_Read8:
  182              	.LFB69:
-  82:PCA9685_Custom.c **** 
-  83:PCA9685_Custom.c **** uint8_t PCA9685_Custom_Read8(uint8_t reg){
- 183              		.loc 1 83 0
+  99:PCA9685_Custom.c **** 
+ 100:PCA9685_Custom.c **** uint8_t PCA9685_Custom_Read8(uint8_t reg){
+ 183              		.loc 1 100 0
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 6
+
+
  184              		.cfi_startproc
  185              		@ args = 0, pretend = 0, frame = 0
  186              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -291,43 +311,40 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  191              		.cfi_offset 14, -4
  192 0002 0446     		mov	r4, r0
  193              	.LVL23:
-  84:PCA9685_Custom.c ****   uint8_t response = 0x00;
-  85:PCA9685_Custom.c ****   I2C_1_MasterSendStart(I2C_SLAVE_ADDR, I2C_WRITE_XFER_MODE);
- 194              		.loc 1 85 0
+ 101:PCA9685_Custom.c ****   uint8_t response = 0x00;
+ 102:PCA9685_Custom.c ****   I2C_1_MasterSendStart(I2C_SLAVE_ADDR, I2C_WRITE_XFER_MODE);
+ 194              		.loc 1 102 0
  195 0004 0021     		movs	r1, #0
  196 0006 4020     		movs	r0, #64
  197              	.LVL24:
  198 0008 FFF7FEFF 		bl	I2C_1_MasterSendStart
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 6
-
-
  199              	.LVL25:
-  86:PCA9685_Custom.c ****   I2C_1_MasterWriteByte(reg);
- 200              		.loc 1 86 0
+ 103:PCA9685_Custom.c ****   I2C_1_MasterWriteByte(reg);
+ 200              		.loc 1 103 0
  201 000c 2046     		mov	r0, r4
  202 000e FFF7FEFF 		bl	I2C_1_MasterWriteByte
  203              	.LVL26:
-  87:PCA9685_Custom.c ****   I2C_1_MasterSendRestart(I2C_SLAVE_ADDR, I2C_READ_XFER_MODE);
- 204              		.loc 1 87 0
+ 104:PCA9685_Custom.c ****   I2C_1_MasterSendRestart(I2C_SLAVE_ADDR, I2C_READ_XFER_MODE);
+ 204              		.loc 1 104 0
  205 0012 0121     		movs	r1, #1
  206 0014 4020     		movs	r0, #64
  207 0016 FFF7FEFF 		bl	I2C_1_MasterSendRestart
  208              	.LVL27:
-  88:PCA9685_Custom.c ****   response =  I2C_1_MasterReadByte(I2C_NAK_DATA);
- 209              		.loc 1 88 0
+ 105:PCA9685_Custom.c ****   response =  I2C_1_MasterReadByte(I2C_NAK_DATA);
+ 209              		.loc 1 105 0
  210 001a 0020     		movs	r0, #0
  211 001c FFF7FEFF 		bl	I2C_1_MasterReadByte
  212              	.LVL28:
  213 0020 0446     		mov	r4, r0
  214              	.LVL29:
-  89:PCA9685_Custom.c ****   I2C_1_MasterSendStop();
- 215              		.loc 1 89 0
+ 106:PCA9685_Custom.c ****   I2C_1_MasterSendStop();
+ 215              		.loc 1 106 0
  216 0022 FFF7FEFF 		bl	I2C_1_MasterSendStop
  217              	.LVL30:
-  90:PCA9685_Custom.c **** 
-  91:PCA9685_Custom.c ****   return response; 
-  92:PCA9685_Custom.c **** }
- 218              		.loc 1 92 0
+ 107:PCA9685_Custom.c **** 
+ 108:PCA9685_Custom.c ****   return response; 
+ 109:PCA9685_Custom.c **** }
+ 218              		.loc 1 109 0
  219 0026 2046     		mov	r0, r4
  220 0028 10BD     		pop	{r4, pc}
  221              		.cfi_endproc
@@ -341,6 +358,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  229              		.global	__aeabi_dadd
  230              		.global	__aeabi_d2uiz
  231 002a 00BF     		.section	.text.PCA9685_Custom_setPWMFreq,"ax",%progbits
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 7
+
+
  232              		.align	2
  233              		.global	PCA9685_Custom_setPWMFreq
  234              		.thumb
@@ -348,8 +368,8 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  236              		.type	PCA9685_Custom_setPWMFreq, %function
  237              	PCA9685_Custom_setPWMFreq:
  238              	.LFB67:
-  54:PCA9685_Custom.c ****   //Serial.print("Attempting to set freq ");
- 239              		.loc 1 54 0
+  71:PCA9685_Custom.c ****   //Serial.print("Attempting to set freq ");
+ 239              		.loc 1 71 0
  240              		.cfi_startproc
  241              		@ args = 0, pretend = 0, frame = 0
  242              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,13 +378,10 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  245              		.cfi_def_cfa_offset 16
  246              		.cfi_offset 3, -16
  247              		.cfi_offset 4, -12
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 7
-
-
  248              		.cfi_offset 5, -8
  249              		.cfi_offset 14, -4
-  57:PCA9685_Custom.c ****   float prescaleval = 25000000;
- 250              		.loc 1 57 0
+  74:PCA9685_Custom.c ****   float prescaleval = 25000000;
+ 250              		.loc 1 74 0
  251 0002 FFF7FEFF 		bl	__aeabi_f2d
  252              	.LVL32:
  253 0006 1CA3     		adr	r3, .L18
@@ -373,20 +390,20 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  256              	.LVL33:
  257 0010 FFF7FEFF 		bl	__aeabi_d2f
  258              	.LVL34:
-  60:PCA9685_Custom.c ****   prescaleval -= 1;
- 259              		.loc 1 60 0
+  77:PCA9685_Custom.c ****   prescaleval -= 1;
+ 259              		.loc 1 77 0
  260 0014 0146     		mov	r1, r0
  261 0016 1A48     		ldr	r0, .L18+8
  262              	.LVL35:
  263 0018 FFF7FEFF 		bl	__aeabi_fdiv
  264              	.LVL36:
-  61:PCA9685_Custom.c ****  
- 265              		.loc 1 61 0
+  78:PCA9685_Custom.c ****  
+ 265              		.loc 1 78 0
  266 001c 4FF07E51 		mov	r1, #1065353216
  267 0020 FFF7FEFF 		bl	__aeabi_fsub
  268              	.LVL37:
-  63:PCA9685_Custom.c ****    
- 269              		.loc 1 63 0
+  80:PCA9685_Custom.c ****    
+ 269              		.loc 1 80 0
  270 0024 FFF7FEFF 		bl	__aeabi_f2d
  271              	.LVL38:
  272 0028 0022     		movs	r2, #0
@@ -399,47 +416,47 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  279              	.LVL41:
  280 0038 C5B2     		uxtb	r5, r0
  281              	.LVL42:
-  65:PCA9685_Custom.c ****   uint8_t newmode = (oldmode&0x7F) | 0x10; // sleep
- 282              		.loc 1 65 0
+  82:PCA9685_Custom.c ****   uint8_t newmode = (oldmode&0x7F) | 0x10; // sleep
+ 282              		.loc 1 82 0
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 8
+
+
  283 003a 0020     		movs	r0, #0
  284 003c FFF7FEFF 		bl	PCA9685_Custom_Read8
  285              	.LVL43:
  286 0040 0446     		mov	r4, r0
  287              	.LVL44:
-  66:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, newmode); // go to sleep
- 288              		.loc 1 66 0
+  83:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, newmode); // go to sleep
+ 288              		.loc 1 83 0
  289 0042 00F06F01 		and	r1, r0, #111
  290              	.LVL45:
-  67:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_PRESCALE, prescale); // set the prescaler
- 291              		.loc 1 67 0
+  84:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_PRESCALE, prescale); // set the prescaler
+ 291              		.loc 1 84 0
  292 0046 41F01001 		orr	r1, r1, #16
  293              	.LVL46:
  294 004a 0020     		movs	r0, #0
  295              	.LVL47:
  296 004c FFF7FEFF 		bl	PCA9685_Custom_Write8
  297              	.LVL48:
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 8
-
-
-  68:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode);
- 298              		.loc 1 68 0
+  85:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode);
+ 298              		.loc 1 85 0
  299 0050 2946     		mov	r1, r5
  300 0052 FE20     		movs	r0, #254
  301 0054 FFF7FEFF 		bl	PCA9685_Custom_Write8
  302              	.LVL49:
-  69:PCA9685_Custom.c ****   CyDelayUs(5);  
- 303              		.loc 1 69 0
+  86:PCA9685_Custom.c ****   CyDelayUs(5);  
+ 303              		.loc 1 86 0
  304 0058 2146     		mov	r1, r4
  305 005a 0020     		movs	r0, #0
  306 005c FFF7FEFF 		bl	PCA9685_Custom_Write8
  307              	.LVL50:
-  70:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode | 0xa1);  //  This sets the MODE1 register to turn o
- 308              		.loc 1 70 0
+  87:PCA9685_Custom.c ****   PCA9685_Custom_Write8(PCA9685_MODE1, oldmode | 0xa1);  //  This sets the MODE1 register to turn o
+ 308              		.loc 1 87 0
  309 0060 0520     		movs	r0, #5
  310 0062 FFF7FEFF 		bl	CyDelayUs
  311              	.LVL51:
-  71:PCA9685_Custom.c **** }
- 312              		.loc 1 71 0
+  88:PCA9685_Custom.c **** }
+ 312              		.loc 1 88 0
  313 0066 64F05E01 		orn	r1, r4, #94
  314 006a C9B2     		uxtb	r1, r1
  315 006c 0020     		movs	r0, #0
@@ -461,12 +478,15 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  331              		.align	2
  332              		.global	PCA9685_Custom_Begin
  333              		.thumb
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 9
+
+
  334              		.thumb_func
  335              		.type	PCA9685_Custom_Begin, %function
  336              	PCA9685_Custom_Begin:
  337              	.LFB64:
-  23:PCA9685_Custom.c ****     I2C_1_Start();
- 338              		.loc 1 23 0
+  40:PCA9685_Custom.c ****     I2C_1_Start();
+ 338              		.loc 1 40 0
  339              		.cfi_startproc
  340              		@ args = 0, pretend = 0, frame = 0
  341              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -474,19 +494,16 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  343              		.cfi_def_cfa_offset 8
  344              		.cfi_offset 3, -8
  345              		.cfi_offset 14, -4
-  24:PCA9685_Custom.c ****     PCA9685_Custom_Reset();
- 346              		.loc 1 24 0
+  41:PCA9685_Custom.c ****     PCA9685_Custom_Reset();
+ 346              		.loc 1 41 0
  347 0002 FFF7FEFF 		bl	I2C_1_Start
  348              	.LVL54:
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 9
-
-
-  25:PCA9685_Custom.c ****     PCA9685_Custom_setPWMFreq(60);
- 349              		.loc 1 25 0
+  42:PCA9685_Custom.c ****     PCA9685_Custom_setPWMFreq(60);
+ 349              		.loc 1 42 0
  350 0006 FFF7FEFF 		bl	PCA9685_Custom_Reset
  351              	.LVL55:
-  26:PCA9685_Custom.c **** }
- 352              		.loc 1 26 0
+  43:PCA9685_Custom.c **** }
+ 352              		.loc 1 43 0
  353 000a 0248     		ldr	r0, .L22
  354 000c FFF7FEFF 		bl	PCA9685_Custom_setPWMFreq
  355              	.LVL56:
@@ -521,6 +538,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  384 0010 3002     		.short	560
  385 0012 3002     		.short	560
  386 0014 3002     		.short	560
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 10
+
+
  387 0016 3002     		.short	560
  388              		.type	oscillator_frequency, %object
  389              		.size	oscillator_frequency, 4
@@ -538,9 +558,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  401              		.section	.debug_info,"",%progbits
  402              	.Ldebug_info0:
  403 0000 E4040000 		.4byte	0x4e4
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 10
-
-
  404 0004 0400     		.2byte	0x4
  405 0006 00000000 		.4byte	.Ldebug_abbrev0
  406 000a 04       		.byte	0x4
@@ -548,7 +565,7 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  408 000c E3000000 		.4byte	.LASF48
  409 0010 0C       		.byte	0xc
  410 0011 79000000 		.4byte	.LASF49
- 411 0015 84020000 		.4byte	.LASF50
+ 411 0015 65020000 		.4byte	.LASF50
  412 0019 00000000 		.4byte	.Ldebug_ranges0+0
  413 001d 00000000 		.4byte	0
  414 0021 00000000 		.4byte	.Ldebug_line0
@@ -559,7 +576,7 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  419 002c 02       		.uleb128 0x2
  420 002d 01       		.byte	0x1
  421 002e 06       		.byte	0x6
- 422 002f 31030000 		.4byte	.LASF1
+ 422 002f 7D030000 		.4byte	.LASF1
  423 0033 03       		.uleb128 0x3
  424 0034 00000000 		.4byte	.LASF4
  425 0038 02       		.byte	0x2
@@ -581,6 +598,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  441 0057 02       		.uleb128 0x2
  442 0058 02       		.byte	0x2
  443 0059 07       		.byte	0x7
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 11
+
+
  444 005a 59000000 		.4byte	.LASF6
  445 005e 03       		.uleb128 0x3
  446 005f 39000000 		.4byte	.LASF7
@@ -590,7 +610,7 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  450 0069 02       		.uleb128 0x2
  451 006a 04       		.byte	0x4
  452 006b 05       		.byte	0x5
- 453 006c 1C030000 		.4byte	.LASF8
+ 453 006c 68030000 		.4byte	.LASF8
  454 0070 02       		.uleb128 0x2
  455 0071 04       		.byte	0x4
  456 0072 07       		.byte	0x7
@@ -598,14 +618,11 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  458 0077 02       		.uleb128 0x2
  459 0078 08       		.byte	0x8
  460 0079 05       		.byte	0x5
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 11
-
-
- 461 007a 76020000 		.4byte	.LASF10
+ 461 007a 13030000 		.4byte	.LASF10
  462 007e 02       		.uleb128 0x2
  463 007f 08       		.byte	0x8
  464 0080 07       		.byte	0x7
- 465 0081 19020000 		.4byte	.LASF11
+ 465 0081 2F020000 		.4byte	.LASF11
  466 0085 04       		.uleb128 0x4
  467 0086 04       		.byte	0x4
  468 0087 05       		.byte	0x5
@@ -615,17 +632,17 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  472 008e 07       		.byte	0x7
  473 008f 0C020000 		.4byte	.LASF12
  474 0093 03       		.uleb128 0x3
- 475 0094 30020000 		.4byte	.LASF13
+ 475 0094 46020000 		.4byte	.LASF13
  476 0098 03       		.byte	0x3
  477 0099 18       		.byte	0x18
  478 009a 33000000 		.4byte	0x33
  479 009e 03       		.uleb128 0x3
- 480 009f FE020000 		.4byte	.LASF14
+ 480 009f 4A030000 		.4byte	.LASF14
  481 00a3 03       		.byte	0x3
  482 00a4 24       		.byte	0x24
  483 00a5 4C000000 		.4byte	0x4c
  484 00a9 03       		.uleb128 0x3
- 485 00aa 65020000 		.4byte	.LASF15
+ 485 00aa 02030000 		.4byte	.LASF15
  486 00ae 03       		.byte	0x3
  487 00af 2C       		.byte	0x2c
  488 00b0 5E000000 		.4byte	0x5e
@@ -641,27 +658,27 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  498 00c8 57000000 		.4byte	0x57
  499 00cc 02       		.uleb128 0x2
  500 00cd 08       		.byte	0x8
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 12
+
+
  501 00ce 04       		.byte	0x4
  502 00cf 6C000000 		.4byte	.LASF18
  503 00d3 02       		.uleb128 0x2
  504 00d4 01       		.byte	0x1
  505 00d5 08       		.byte	0x8
- 506 00d6 DF020000 		.4byte	.LASF19
+ 506 00d6 2B030000 		.4byte	.LASF19
  507 00da 02       		.uleb128 0x2
  508 00db 08       		.byte	0x8
  509 00dc 04       		.byte	0x4
- 510 00dd 25030000 		.4byte	.LASF20
+ 510 00dd 71030000 		.4byte	.LASF20
  511 00e1 02       		.uleb128 0x2
  512 00e2 04       		.byte	0x4
  513 00e3 07       		.byte	0x7
- 514 00e4 6D020000 		.4byte	.LASF21
+ 514 00e4 0A030000 		.4byte	.LASF21
  515 00e8 06       		.uleb128 0x6
- 516 00e9 4F020000 		.4byte	.LASF23
+ 516 00e9 19020000 		.4byte	.LASF23
  517 00ed 01       		.byte	0x1
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 12
-
-
- 518 00ee 21       		.byte	0x21
+ 518 00ee 32       		.byte	0x32
  519 00ef 00000000 		.4byte	.LFB66
  520 00f3 54000000 		.4byte	.LFE66-.LFB66
  521 00f7 01       		.uleb128 0x1
@@ -670,19 +687,19 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  524 00fd 07       		.uleb128 0x7
  525 00fe 6E756D00 		.ascii	"num\000"
  526 0102 01       		.byte	0x1
- 527 0103 21       		.byte	0x21
+ 527 0103 32       		.byte	0x32
  528 0104 B4000000 		.4byte	0xb4
  529 0108 00000000 		.4byte	.LLST0
  530 010c 07       		.uleb128 0x7
  531 010d 6F6E00   		.ascii	"on\000"
  532 0110 01       		.byte	0x1
- 533 0111 21       		.byte	0x21
+ 533 0111 32       		.byte	0x32
  534 0112 C0000000 		.4byte	0xc0
  535 0116 21000000 		.4byte	.LLST1
  536 011a 07       		.uleb128 0x7
  537 011b 6F666600 		.ascii	"off\000"
  538 011f 01       		.byte	0x1
- 539 0120 21       		.byte	0x21
+ 539 0120 32       		.byte	0x32
  540 0121 C0000000 		.4byte	0xc0
  541 0125 42000000 		.4byte	.LLST2
  542 0129 08       		.uleb128 0x8
@@ -701,6 +718,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  555 013f 01       		.uleb128 0x1
  556 0140 30       		.byte	0x30
  557 0141 00       		.byte	0
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 13
+
+
  558 0142 08       		.uleb128 0x8
  559 0143 30000000 		.4byte	.LVL5
  560 0147 9A040000 		.4byte	0x49a
@@ -718,9 +738,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  572 0159 08       		.byte	0x8
  573 015a FE       		.byte	0xfe
  574 015b 1A       		.byte	0x1a
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 13
-
-
  575 015c 00       		.byte	0
  576 015d 08       		.uleb128 0x8
  577 015e 36000000 		.4byte	.LVL6
@@ -761,6 +778,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  612 019c 48000000 		.4byte	.LVL9
  613 01a0 9A040000 		.4byte	0x49a
  614 01a4 B1010000 		.4byte	0x1b1
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 14
+
+
  615 01a8 09       		.uleb128 0x9
  616 01a9 01       		.uleb128 0x1
  617 01aa 50       		.byte	0x50
@@ -777,10 +797,7 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  628 01bb 0B       		.uleb128 0xb
  629 01bc 9B010000 		.4byte	.LASF25
  630 01c0 01       		.byte	0x1
- 631 01c1 4A       		.byte	0x4a
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 14
-
-
+ 631 01c1 5B       		.byte	0x5b
  632 01c2 93000000 		.4byte	0x93
  633 01c6 00000000 		.4byte	.LFB68
  634 01ca 2C000000 		.4byte	.LFE68-.LFB68
@@ -790,19 +807,19 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  638 01d4 07       		.uleb128 0x7
  639 01d5 72656700 		.ascii	"reg\000"
  640 01d9 01       		.byte	0x1
- 641 01da 4A       		.byte	0x4a
+ 641 01da 5B       		.byte	0x5b
  642 01db 93000000 		.4byte	0x93
  643 01df 60000000 		.4byte	.LLST3
  644 01e3 0C       		.uleb128 0xc
  645 01e4 D0000000 		.4byte	.LASF22
  646 01e8 01       		.byte	0x1
- 647 01e9 4A       		.byte	0x4a
+ 647 01e9 5B       		.byte	0x5b
  648 01ea 93000000 		.4byte	0x93
  649 01ee 81000000 		.4byte	.LLST4
  650 01f2 0D       		.uleb128 0xd
- 651 01f3 6A030000 		.4byte	.LASF27
+ 651 01f3 B6030000 		.4byte	.LASF27
  652 01f7 01       		.byte	0x1
- 653 01f8 4B       		.byte	0x4b
+ 653 01f8 5C       		.byte	0x5c
  654 01f9 93000000 		.4byte	0x93
  655 01fd A2000000 		.4byte	.LLST5
  656 0201 08       		.uleb128 0x8
@@ -821,6 +838,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  669 0217 01       		.uleb128 0x1
  670 0218 30       		.byte	0x30
  671 0219 00       		.byte	0
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 15
+
+
  672 021a 08       		.uleb128 0x8
  673 021b 16000000 		.4byte	.LVL17
  674 021f 9A040000 		.4byte	0x49a
@@ -838,9 +858,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  686 0237 42020000 		.4byte	0x242
  687 023b 09       		.uleb128 0x9
  688 023c 01       		.uleb128 0x1
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 15
-
-
  689 023d 50       		.byte	0x50
  690 023e 02       		.uleb128 0x2
  691 023f 75       		.byte	0x75
@@ -851,9 +868,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  696 0247 A5040000 		.4byte	0x4a5
  697 024b 00       		.byte	0
  698 024c 06       		.uleb128 0x6
- 699 024d 45030000 		.4byte	.LASF24
+ 699 024d 91030000 		.4byte	.LASF24
  700 0251 01       		.byte	0x1
- 701 0252 1D       		.byte	0x1d
+ 701 0252 2E       		.byte	0x2e
  702 0253 00000000 		.4byte	.LFB65
  703 0257 0C000000 		.4byte	.LFE65-.LFB65
  704 025b 01       		.uleb128 0x1
@@ -878,9 +895,12 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  723 0277 0B       		.uleb128 0xb
  724 0278 B5000000 		.4byte	.LASF26
  725 027c 01       		.byte	0x1
- 726 027d 53       		.byte	0x53
+ 726 027d 64       		.byte	0x64
  727 027e 93000000 		.4byte	0x93
  728 0282 00000000 		.4byte	.LFB69
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 16
+
+
  729 0286 2A000000 		.4byte	.LFE69-.LFB69
  730 028a 01       		.uleb128 0x1
  731 028b 9C       		.byte	0x9c
@@ -888,19 +908,16 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  733 0290 07       		.uleb128 0x7
  734 0291 72656700 		.ascii	"reg\000"
  735 0295 01       		.byte	0x1
- 736 0296 53       		.byte	0x53
+ 736 0296 64       		.byte	0x64
  737 0297 93000000 		.4byte	0x93
  738 029b D6000000 		.4byte	.LLST6
  739 029f 0D       		.uleb128 0xd
- 740 02a0 46020000 		.4byte	.LASF28
+ 740 02a0 5C020000 		.4byte	.LASF28
  741 02a4 01       		.byte	0x1
- 742 02a5 54       		.byte	0x54
+ 742 02a5 65       		.byte	0x65
  743 02a6 93000000 		.4byte	0x93
  744 02aa F7000000 		.4byte	.LLST7
  745 02ae 08       		.uleb128 0x8
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 16
-
-
  746 02af 0C000000 		.4byte	.LVL25
  747 02b3 8F040000 		.4byte	0x48f
  748 02b7 C7020000 		.4byte	0x2c7
@@ -941,6 +958,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  783 02ef 01       		.uleb128 0x1
  784 02f0 51       		.byte	0x51
  785 02f1 01       		.uleb128 0x1
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 17
+
+
  786 02f2 31       		.byte	0x31
  787 02f3 00       		.byte	0
  788 02f4 08       		.uleb128 0x8
@@ -958,49 +978,49 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  800 030c A5040000 		.4byte	0x4a5
  801 0310 00       		.byte	0
  802 0311 0F       		.uleb128 0xf
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 17
-
-
  803 0312 1F000000 		.4byte	.LASF29
  804 0316 01       		.byte	0x1
- 805 0317 36       		.byte	0x36
+ 805 0317 47       		.byte	0x47
  806 0318 00000000 		.4byte	.LFB67
  807 031c 88000000 		.4byte	.LFE67-.LFB67
  808 0320 01       		.uleb128 0x1
  809 0321 9C       		.byte	0x9c
  810 0322 0A040000 		.4byte	0x40a
  811 0326 0C       		.uleb128 0xc
- 812 0327 F9020000 		.4byte	.LASF30
+ 812 0327 45030000 		.4byte	.LASF30
  813 032b 01       		.byte	0x1
- 814 032c 36       		.byte	0x36
+ 814 032c 47       		.byte	0x47
  815 032d 25000000 		.4byte	0x25
  816 0331 16010000 		.4byte	.LLST8
  817 0335 0D       		.uleb128 0xd
  818 0336 00020000 		.4byte	.LASF31
  819 033a 01       		.byte	0x1
- 820 033b 3A       		.byte	0x3a
+ 820 033b 4B       		.byte	0x4b
  821 033c 25000000 		.4byte	0x25
  822 0340 4F010000 		.4byte	.LLST9
  823 0344 0D       		.uleb128 0xd
- 824 0345 E4020000 		.4byte	.LASF32
+ 824 0345 30030000 		.4byte	.LASF32
  825 0349 01       		.byte	0x1
- 826 034a 3F       		.byte	0x3f
+ 826 034a 50       		.byte	0x50
  827 034b 93000000 		.4byte	0x93
  828 034f 7D010000 		.4byte	.LLST10
  829 0353 0D       		.uleb128 0xd
- 830 0354 38020000 		.4byte	.LASF33
+ 830 0354 4E020000 		.4byte	.LASF33
  831 0358 01       		.byte	0x1
- 832 0359 41       		.byte	0x41
+ 832 0359 52       		.byte	0x52
  833 035a 93000000 		.4byte	0x93
  834 035e 90010000 		.4byte	.LLST11
  835 0362 0D       		.uleb128 0xd
- 836 0363 3D030000 		.4byte	.LASF34
+ 836 0363 89030000 		.4byte	.LASF34
  837 0367 01       		.byte	0x1
- 838 0368 42       		.byte	0x42
+ 838 0368 53       		.byte	0x53
  839 0369 93000000 		.4byte	0x93
  840 036d A3010000 		.4byte	.LLST12
  841 0371 0A       		.uleb128 0xa
  842 0372 34000000 		.4byte	.LVL40
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 18
+
+
  843 0376 C6040000 		.4byte	0x4c6
  844 037a 08       		.uleb128 0x8
  845 037b 40000000 		.4byte	.LVL43
@@ -1018,9 +1038,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  857 0396 AB030000 		.4byte	0x3ab
  858 039a 09       		.uleb128 0x9
  859 039b 01       		.uleb128 0x1
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 18
-
-
  860 039c 50       		.byte	0x50
  861 039d 01       		.uleb128 0x1
  862 039e 30       		.byte	0x30
@@ -1061,6 +1078,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  897 03d3 01       		.uleb128 0x1
  898 03d4 50       		.byte	0x50
  899 03d5 01       		.uleb128 0x1
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 19
+
+
  900 03d6 30       		.byte	0x30
  901 03d7 09       		.uleb128 0x9
  902 03d8 01       		.uleb128 0x1
@@ -1078,9 +1098,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  914 03ed 50       		.byte	0x50
  915 03ee 01       		.uleb128 0x1
  916 03ef 35       		.byte	0x35
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 19
-
-
  917 03f0 00       		.byte	0
  918 03f1 0E       		.uleb128 0xe
  919 03f2 72000000 		.4byte	.LVL52
@@ -1104,7 +1121,7 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  937 040a 06       		.uleb128 0x6
  938 040b E1010000 		.4byte	.LASF35
  939 040f 01       		.byte	0x1
- 940 0410 17       		.byte	0x17
+ 940 0410 28       		.byte	0x28
  941 0411 00000000 		.4byte	.LFB64
  942 0415 18000000 		.4byte	.LFE64-.LFB64
  943 0419 01       		.uleb128 0x1
@@ -1121,6 +1138,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  954 0436 11030000 		.4byte	0x311
  955 043a 00       		.byte	0
  956 043b 10       		.uleb128 0x10
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 20
+
+
  957 043c B1010000 		.4byte	.LASF36
  958 0440 05       		.byte	0x5
  959 0441 1207     		.2byte	0x712
@@ -1130,7 +1150,7 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  963 044c 12       		.uleb128 0x12
  964 044d 8A000000 		.4byte	.LASF37
  965 0451 01       		.byte	0x1
- 966 0452 11       		.byte	0x11
+ 966 0452 22       		.byte	0x22
  967 0453 25000000 		.4byte	0x25
  968 0457 05       		.uleb128 0x5
  969 0458 03       		.byte	0x3
@@ -1138,17 +1158,14 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  971 045d 13       		.uleb128 0x13
  972 045e 9E000000 		.4byte	0x9e
  973 0462 6D040000 		.4byte	0x46d
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 20
-
-
  974 0466 14       		.uleb128 0x14
  975 0467 E1000000 		.4byte	0xe1
  976 046b 05       		.byte	0x5
  977 046c 00       		.byte	0
  978 046d 12       		.uleb128 0x12
- 979 046e 5A030000 		.4byte	.LASF38
+ 979 046e A6030000 		.4byte	.LASF38
  980 0472 01       		.byte	0x1
- 981 0473 14       		.byte	0x14
+ 981 0473 25       		.byte	0x25
  982 0474 5D040000 		.4byte	0x45d
  983 0478 05       		.uleb128 0x5
  984 0479 03       		.byte	0x3
@@ -1156,7 +1173,7 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  986 047e 12       		.uleb128 0x12
  987 047f C9010000 		.4byte	.LASF39
  988 0483 01       		.byte	0x1
- 989 0484 15       		.byte	0x15
+ 989 0484 26       		.byte	0x26
  990 0485 5D040000 		.4byte	0x45d
  991 0489 05       		.uleb128 0x5
  992 048a 03       		.byte	0x3
@@ -1172,8 +1189,8 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1002 04a3 06       		.byte	0x6
  1003 04a4 B6       		.byte	0xb6
  1004 04a5 15       		.uleb128 0x15
- 1005 04a6 07030000 		.4byte	.LASF42
- 1006 04aa 07030000 		.4byte	.LASF42
+ 1005 04a6 53030000 		.4byte	.LASF42
+ 1006 04aa 53030000 		.4byte	.LASF42
  1007 04ae 06       		.byte	0x6
  1008 04af B5       		.byte	0xb5
  1009 04b0 15       		.uleb128 0x15
@@ -1181,27 +1198,27 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1011 04b5 83010000 		.4byte	.LASF43
  1012 04b9 06       		.byte	0x6
  1013 04ba B3       		.byte	0xb3
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 21
+
+
  1014 04bb 15       		.uleb128 0x15
  1015 04bc 0A000000 		.4byte	.LASF44
  1016 04c0 0A000000 		.4byte	.LASF44
  1017 04c4 06       		.byte	0x6
  1018 04c5 B7       		.byte	0xb7
  1019 04c6 15       		.uleb128 0x15
- 1020 04c7 40020000 		.4byte	.LASF45
- 1021 04cb 40020000 		.4byte	.LASF45
+ 1020 04c7 56020000 		.4byte	.LASF45
+ 1021 04cb 56020000 		.4byte	.LASF45
  1022 04cf 07       		.byte	0x7
  1023 04d0 76       		.byte	0x76
  1024 04d1 15       		.uleb128 0x15
- 1025 04d2 D5020000 		.4byte	.LASF46
- 1026 04d6 D5020000 		.4byte	.LASF46
+ 1025 04d2 21030000 		.4byte	.LASF46
+ 1026 04d6 21030000 		.4byte	.LASF46
  1027 04da 08       		.byte	0x8
  1028 04db 77       		.byte	0x77
  1029 04dc 15       		.uleb128 0x15
- 1030 04dd ED020000 		.4byte	.LASF47
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 21
-
-
- 1031 04e1 ED020000 		.4byte	.LASF47
+ 1030 04dd 39030000 		.4byte	.LASF47
+ 1031 04e1 39030000 		.4byte	.LASF47
  1032 04e5 06       		.byte	0x6
  1033 04e6 93       		.byte	0x93
  1034 04e7 00       		.byte	0
@@ -1241,6 +1258,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1068 001f 16       		.uleb128 0x16
  1069 0020 00       		.byte	0
  1070 0021 03       		.uleb128 0x3
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 22
+
+
  1071 0022 0E       		.uleb128 0xe
  1072 0023 3A       		.uleb128 0x3a
  1073 0024 0B       		.uleb128 0xb
@@ -1258,9 +1278,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1085 0030 3E       		.uleb128 0x3e
  1086 0031 0B       		.uleb128 0xb
  1087 0032 03       		.uleb128 0x3
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 22
-
-
  1088 0033 08       		.uleb128 0x8
  1089 0034 00       		.byte	0
  1090 0035 00       		.byte	0
@@ -1301,6 +1318,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1125 0059 01       		.uleb128 0x1
  1126 005a 13       		.uleb128 0x13
  1127 005b 00       		.byte	0
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 23
+
+
  1128 005c 00       		.byte	0
  1129 005d 07       		.uleb128 0x7
  1130 005e 05       		.uleb128 0x5
@@ -1318,9 +1338,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1142 006a 00       		.byte	0
  1143 006b 00       		.byte	0
  1144 006c 08       		.uleb128 0x8
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 23
-
-
  1145 006d 898201   		.uleb128 0x4109
  1146 0070 01       		.byte	0x1
  1147 0071 11       		.uleb128 0x11
@@ -1361,6 +1378,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1182 0099 3B       		.uleb128 0x3b
  1183 009a 0B       		.uleb128 0xb
  1184 009b 27       		.uleb128 0x27
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 24
+
+
  1185 009c 19       		.uleb128 0x19
  1186 009d 49       		.uleb128 0x49
  1187 009e 13       		.uleb128 0x13
@@ -1378,9 +1398,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1199 00ab 00       		.byte	0
  1200 00ac 0C       		.uleb128 0xc
  1201 00ad 05       		.uleb128 0x5
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 24
-
-
  1202 00ae 00       		.byte	0
  1203 00af 03       		.uleb128 0x3
  1204 00b0 0E       		.uleb128 0xe
@@ -1421,6 +1438,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1239 00d5 0F       		.uleb128 0xf
  1240 00d6 2E       		.uleb128 0x2e
  1241 00d7 01       		.byte	0x1
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 25
+
+
  1242 00d8 3F       		.uleb128 0x3f
  1243 00d9 19       		.uleb128 0x19
  1244 00da 03       		.uleb128 0x3
@@ -1438,9 +1458,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1256 00e6 40       		.uleb128 0x40
  1257 00e7 18       		.uleb128 0x18
  1258 00e8 9642     		.uleb128 0x2116
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 25
-
-
  1259 00ea 19       		.uleb128 0x19
  1260 00eb 01       		.uleb128 0x1
  1261 00ec 13       		.uleb128 0x13
@@ -1481,6 +1498,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1296 010f 0B       		.uleb128 0xb
  1297 0110 49       		.uleb128 0x49
  1298 0111 13       		.uleb128 0x13
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 26
+
+
  1299 0112 3F       		.uleb128 0x3f
  1300 0113 19       		.uleb128 0x19
  1301 0114 02       		.uleb128 0x2
@@ -1498,9 +1518,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1313 0120 00       		.byte	0
  1314 0121 14       		.uleb128 0x14
  1315 0122 21       		.uleb128 0x21
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 26
-
-
  1316 0123 00       		.byte	0
  1317 0124 49       		.uleb128 0x49
  1318 0125 13       		.uleb128 0x13
@@ -1541,6 +1558,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1353 0017 50       		.byte	0x50
  1354 0018 9F       		.byte	0x9f
  1355 0019 00000000 		.4byte	0
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 27
+
+
  1356 001d 00000000 		.4byte	0
  1357              	.LLST1:
  1358 0021 00000000 		.4byte	.LVL0
@@ -1558,9 +1578,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1370 003e 00000000 		.4byte	0
  1371              	.LLST2:
  1372 0042 00000000 		.4byte	.LVL0
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 27
-
-
  1373 0046 1C000000 		.4byte	.LVL1
  1374 004a 0100     		.2byte	0x1
  1375 004c 52       		.byte	0x52
@@ -1601,6 +1618,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1410              	.LLST5:
  1411 00a2 0E000000 		.4byte	.LVL15
  1412 00a6 12000000 		.4byte	.LVL16
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 28
+
+
  1413 00aa 0100     		.2byte	0x1
  1414 00ac 50       		.byte	0x50
  1415 00ad 16000000 		.4byte	.LVL17
@@ -1618,9 +1638,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1427 00ce 00000000 		.4byte	0
  1428 00d2 00000000 		.4byte	0
  1429              	.LLST6:
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 28
-
-
  1430 00d6 00000000 		.4byte	.LVL22
  1431 00da 08000000 		.4byte	.LVL24
  1432 00de 0100     		.2byte	0x1
@@ -1661,6 +1678,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1467 012f 25       		.uleb128 0x25
  1468 0130 9F       		.byte	0x9f
  1469 0131 14000000 		.4byte	.LVL34
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 29
+
+
  1470 0135 18000000 		.4byte	.LVL35
  1471 0139 0100     		.2byte	0x1
  1472 013b 50       		.byte	0x50
@@ -1678,9 +1698,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1484 015a 04       		.uleb128 0x4
  1485 015b 20BCBE45 		.4byte	0x45bebc20
  1486 015f 1C000000 		.4byte	.LVL36
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 29
-
-
  1487 0163 23000000 		.4byte	.LVL37-1
  1488 0167 0100     		.2byte	0x1
  1489 0169 50       		.byte	0x50
@@ -1721,6 +1738,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1524 01be 08       		.byte	0x8
  1525 01bf 6F       		.byte	0x6f
  1526 01c0 1A       		.byte	0x1a
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 30
+
+
  1527 01c1 40       		.byte	0x40
  1528 01c2 21       		.byte	0x21
  1529 01c3 9F       		.byte	0x9f
@@ -1738,9 +1758,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1541 01d6 00000000 		.4byte	0
  1542 01da 00000000 		.4byte	0
  1543              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 30
-
-
  1544 0000 44000000 		.4byte	0x44
  1545 0004 0200     		.2byte	0x2
  1546 0006 00000000 		.4byte	.Ldebug_info0
@@ -1780,7 +1797,10 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1580 0034 00000000 		.4byte	0
  1581              		.section	.debug_line,"",%progbits
  1582              	.Ldebug_line0:
- 1583 0000 62020000 		.section	.debug_str,"MS",%progbits,1
+ 1583 0000 63020000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 31
+
+
  1583      0200DE01 
  1583      00000201 
  1583      FB0E0D00 
@@ -1798,9 +1818,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1588              	.LASF29:
  1589 001f 50434139 		.ascii	"PCA9685_Custom_setPWMFreq\000"
  1589      3638355F 
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 31
-
-
  1589      43757374 
  1589      6F6D5F73 
  1589      65745057 
@@ -1841,6 +1858,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1604              	.LASF41:
  1605 009f 4932435F 		.ascii	"I2C_1_MasterWriteByte\000"
  1605      315F4D61 
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 32
+
+
  1605      73746572 
  1605      57726974 
  1605      65427974 
@@ -1858,9 +1878,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1611      00
  1612              	.LASF2:
  1613 00d5 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 32
-
-
  1613      676E6564 
  1613      20636861 
  1613      7200
@@ -1901,6 +1918,9 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1624              	.LASF36:
  1625 01b1 49544D5F 		.ascii	"ITM_RxBuffer\000"
  1625      52784275 
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 33
+
+
  1625      66666572 
  1625      00
  1626              	.LASF5:
@@ -1918,9 +1938,6 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1631      313600
  1632              	.LASF35:
  1633 01e1 50434139 		.ascii	"PCA9685_Custom_Begin\000"
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 33
-
-
  1633      3638355F 
  1633      43757374 
  1633      6F6D5F42 
@@ -1938,115 +1955,123 @@ ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 1
  1639      676E6564 
  1639      20696E74 
  1639      00
- 1640              	.LASF11:
- 1641 0219 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1641      206C6F6E 
- 1641      6720756E 
- 1641      7369676E 
- 1641      65642069 
- 1642              	.LASF13:
- 1643 0230 75696E74 		.ascii	"uint8_t\000"
- 1643      385F7400 
- 1644              	.LASF33:
- 1645 0238 6F6C646D 		.ascii	"oldmode\000"
- 1645      6F646500 
- 1646              	.LASF45:
- 1647 0240 666C6F6F 		.ascii	"floor\000"
- 1647      7200
- 1648              	.LASF28:
- 1649 0246 72657370 		.ascii	"response\000"
- 1649      6F6E7365 
- 1649      00
- 1650              	.LASF23:
- 1651 024f 50434139 		.ascii	"PCA9685_Custom_setPWM\000"
- 1651      3638355F 
- 1651      43757374 
- 1651      6F6D5F73 
- 1651      65745057 
- 1652              	.LASF15:
- 1653 0265 696E7433 		.ascii	"int32_t\000"
- 1653      325F7400 
- 1654              	.LASF21:
- 1655 026d 73697A65 		.ascii	"sizetype\000"
- 1655      74797065 
- 1655      00
- 1656              	.LASF10:
- 1657 0276 6C6F6E67 		.ascii	"long long int\000"
- 1657      206C6F6E 
- 1657      6720696E 
- 1657      7400
- 1658              	.LASF50:
- 1659 0284 433A5C55 		.ascii	"C:\\Users\\Barney\\Desktop\\PSoC to Arduino I2C.Bun"
- 1659      73657273 
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 34
+ 1640              	.LASF23:
+ 1641 0219 50434139 		.ascii	"PCA9685_Custom_setPWM\000"
+ 1641      3638355F 
+ 1641      43757374 
+ 1641      6F6D5F73 
+ 1641      65745057 
+ 1642              	.LASF11:
+ 1643 022f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1643      206C6F6E 
+ 1643      6720756E 
+ 1643      7369676E 
+ 1643      65642069 
+ 1644              	.LASF13:
+ 1645 0246 75696E74 		.ascii	"uint8_t\000"
+ 1645      385F7400 
+ 1646              	.LASF33:
+ 1647 024e 6F6C646D 		.ascii	"oldmode\000"
+ 1647      6F646500 
+ 1648              	.LASF45:
+ 1649 0256 666C6F6F 		.ascii	"floor\000"
+ 1649      7200
+ 1650              	.LASF28:
+ 1651 025c 72657370 		.ascii	"response\000"
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 34
 
 
- 1659      5C426172 
- 1659      6E65795C 
- 1659      4465736B 
- 1660 02b3 646C655C 		.ascii	"dle\\PSoC Servo Control Rev1.cydsn\000"
- 1660      50536F43 
- 1660      20536572 
- 1660      766F2043 
- 1660      6F6E7472 
- 1661              	.LASF46:
- 1662 02d5 43794465 		.ascii	"CyDelayUs\000"
- 1662      6C617955 
- 1662      7300
- 1663              	.LASF19:
- 1664 02df 63686172 		.ascii	"char\000"
- 1664      00
- 1665              	.LASF32:
- 1666 02e4 70726573 		.ascii	"prescale\000"
- 1666      63616C65 
+ 1651      6F6E7365 
+ 1651      00
+ 1652              	.LASF50:
+ 1653 0265 433A5C55 		.ascii	"C:\\Users\\Barney\\Documents\\GitHub\\PSoC-Servo-Co"
+ 1653      73657273 
+ 1653      5C426172 
+ 1653      6E65795C 
+ 1653      446F6375 
+ 1654 0293 6E74726F 		.ascii	"ntroller-Rev1\\PSoC Servo Control Rev1.Bundle.Bundl"
+ 1654      6C6C6572 
+ 1654      2D526576 
+ 1654      315C5053 
+ 1654      6F432053 
+ 1655 02c5 6530315C 		.ascii	"e01\\PSoC to Arduino I2C.Bundle\\PSoC Servo Control"
+ 1655      50536F43 
+ 1655      20746F20 
+ 1655      41726475 
+ 1655      696E6F20 
+ 1656 02f6 20526576 		.ascii	" Rev1.cydsn\000"
+ 1656      312E6379 
+ 1656      64736E00 
+ 1657              	.LASF15:
+ 1658 0302 696E7433 		.ascii	"int32_t\000"
+ 1658      325F7400 
+ 1659              	.LASF21:
+ 1660 030a 73697A65 		.ascii	"sizetype\000"
+ 1660      74797065 
+ 1660      00
+ 1661              	.LASF10:
+ 1662 0313 6C6F6E67 		.ascii	"long long int\000"
+ 1662      206C6F6E 
+ 1662      6720696E 
+ 1662      7400
+ 1663              	.LASF46:
+ 1664 0321 43794465 		.ascii	"CyDelayUs\000"
+ 1664      6C617955 
+ 1664      7300
+ 1665              	.LASF19:
+ 1666 032b 63686172 		.ascii	"char\000"
  1666      00
- 1667              	.LASF47:
- 1668 02ed 4932435F 		.ascii	"I2C_1_Start\000"
- 1668      315F5374 
- 1668      61727400 
- 1669              	.LASF30:
- 1670 02f9 66726571 		.ascii	"freq\000"
- 1670      00
- 1671              	.LASF14:
- 1672 02fe 75696E74 		.ascii	"uint16_t\000"
- 1672      31365F74 
+ 1667              	.LASF32:
+ 1668 0330 70726573 		.ascii	"prescale\000"
+ 1668      63616C65 
+ 1668      00
+ 1669              	.LASF47:
+ 1670 0339 4932435F 		.ascii	"I2C_1_Start\000"
+ 1670      315F5374 
+ 1670      61727400 
+ 1671              	.LASF30:
+ 1672 0345 66726571 		.ascii	"freq\000"
  1672      00
- 1673              	.LASF42:
- 1674 0307 4932435F 		.ascii	"I2C_1_MasterSendStop\000"
- 1674      315F4D61 
- 1674      73746572 
- 1674      53656E64 
- 1674      53746F70 
- 1675              	.LASF8:
- 1676 031c 6C6F6E67 		.ascii	"long int\000"
- 1676      20696E74 
- 1676      00
- 1677              	.LASF20:
- 1678 0325 6C6F6E67 		.ascii	"long double\000"
- 1678      20646F75 
- 1678      626C6500 
- 1679              	.LASF1:
- 1680 0331 7369676E 		.ascii	"signed char\000"
- 1680      65642063 
- 1680      68617200 
- 1681              	.LASF34:
- 1682 033d 6E65776D 		.ascii	"newmode\000"
- 1682      6F646500 
- 1683              	.LASF24:
- 1684 0345 50434139 		.ascii	"PCA9685_Custom_Reset\000"
- 1684      3638355F 
- 1684      43757374 
- 1684      6F6D5F52 
- 1684      65736574 
-ARM GAS  C:\Users\Barney\AppData\Local\Temp\ccGhVvco.s 			page 35
+ 1673              	.LASF14:
+ 1674 034a 75696E74 		.ascii	"uint16_t\000"
+ 1674      31365F74 
+ 1674      00
+ 1675              	.LASF42:
+ 1676 0353 4932435F 		.ascii	"I2C_1_MasterSendStop\000"
+ARM GAS  C:\Users\Barney\AppData\Local\Temp\cc4P1OMY.s 			page 35
 
 
- 1685              	.LASF38:
- 1686 035a 53657276 		.ascii	"Servo_Limit_Low\000"
- 1686      6F5F4C69 
- 1686      6D69745F 
- 1686      4C6F7700 
- 1687              	.LASF27:
- 1688 036a 52657375 		.ascii	"Result\000"
- 1688      6C7400
- 1689              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1676      315F4D61 
+ 1676      73746572 
+ 1676      53656E64 
+ 1676      53746F70 
+ 1677              	.LASF8:
+ 1678 0368 6C6F6E67 		.ascii	"long int\000"
+ 1678      20696E74 
+ 1678      00
+ 1679              	.LASF20:
+ 1680 0371 6C6F6E67 		.ascii	"long double\000"
+ 1680      20646F75 
+ 1680      626C6500 
+ 1681              	.LASF1:
+ 1682 037d 7369676E 		.ascii	"signed char\000"
+ 1682      65642063 
+ 1682      68617200 
+ 1683              	.LASF34:
+ 1684 0389 6E65776D 		.ascii	"newmode\000"
+ 1684      6F646500 
+ 1685              	.LASF24:
+ 1686 0391 50434139 		.ascii	"PCA9685_Custom_Reset\000"
+ 1686      3638355F 
+ 1686      43757374 
+ 1686      6F6D5F52 
+ 1686      65736574 
+ 1687              	.LASF38:
+ 1688 03a6 53657276 		.ascii	"Servo_Limit_Low\000"
+ 1688      6F5F4C69 
+ 1688      6D69745F 
+ 1688      4C6F7700 
+ 1689              	.LASF27:
+ 1690 03b6 52657375 		.ascii	"Result\000"
+ 1690      6C7400
+ 1691              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
